@@ -1,0 +1,21 @@
+<!--
+ - Created by Egran on 23.07.2023.
+ -->
+
+<!-- User Info Component -->
+<template>
+    <lightning-card title="Products" icon-name="standard:app">
+    <div class="contactDetail">
+        <div class="contactDetail__text">
+            <p class=slds-text-heading_large>{name}</p>
+        </div>
+        <div class="contactDetail__text">
+            <p class=slds-text-heading_large>{id}</p>
+        </div>
+        <div class="contactDetail__actions">
+            <lightning-button  label="Cart" title="View your cart" onclick={viewCartClick} class="slds-m-left_xx-large" ></lightning-button>
+            <lightning-button  label="Create Product" title="Create new product" onclick={createProductClick} class="slds-m-left_xx-large"  ></lightning-button>
+        </div>
+    </div>
+    </lightning-card>
+</template>

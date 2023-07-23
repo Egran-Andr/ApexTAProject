@@ -1,0 +1,21 @@
+/**
+ * Created by Egran on 23.07.2023.
+ */
+ .contactDetail::after {
+   content: '';
+   clear: both;
+   display: table;
+ }
+
+ .contactDetail__text {
+   float: left;
+   margin: 5px;
+ }
+
+ .contactDetail__actions {
+   float: right;
+ }
+
+ .contactDetail__actions .btn {
+   display: block;
+ }
