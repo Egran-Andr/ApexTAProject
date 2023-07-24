@@ -4,4 +4,7 @@
     <description>Product Search Component</description>
     <isExposed>true</isExposed>
     <masterLabel>Product Search Component</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+    </targets>
 </LightningComponentBundle>

@@ -3,6 +3,7 @@
  */
 
 public with sharing class ObjectGetter {
+    //get values of types picklist
     @AuraEnabled(cacheable=true)
     public static List<String> getTypesPickListValuesIntoList(){
         List<String> pickListValuesList= new List<String>();
@@ -13,6 +14,8 @@ public with sharing class ObjectGetter {
         }
         return pickListValuesList;
     }
+
+    //get values of families picklist
     @AuraEnabled(cacheable=true)
     public static List<String> getFamilyPickListValuesIntoList(){
         List<String> pickListValuesListFamilies= new List<String>();
@@ -23,5 +26,16 @@ public with sharing class ObjectGetter {
         }
         return pickListValuesListFamilies;
     }
+
+    //get product_c records
+    @AuraEnabled(cacheable=true)
+    public static List<Product__c> getProductRecords(){
+        List<Product__c> objectList  =  [
+                SELECT Id,Name,Description__c,Type__c,Family__c,Image__c,Price__c
+                FROM Product__c
+        ];
+        return objectList;
+    }
+
 
 }

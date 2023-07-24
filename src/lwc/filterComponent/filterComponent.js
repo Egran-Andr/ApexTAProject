@@ -8,6 +8,7 @@ import getTypesPickListValuesIntoList from '@salesforce/apex/ObjectGetter.getTyp
 import getFamilyPickListValuesIntoList from '@salesforce/apex/ObjectGetter.getFamilyPickListValuesIntoList';
 
 export default class FilterComponent extends LightningElement {
+    activeSections = ['TypeFilter', 'FamilyFilter']
      types=[];
      families=[];
     clickedButtonLabel;
@@ -19,7 +20,7 @@ export default class FilterComponent extends LightningElement {
                 this.error = error;
             }
         }
-        ///## (BUG)repopulating HTML code lead to error 957897146, reasons unknown but it make objects appear and function normally,but it appears to not change their behavior
+        ///## (BUG)repopulating HTML code lead to error 957897146, reasons unknown but it make objects appear, always show error on collapsing/opening accordion ,but it appears to not change their behavior
       @wire(getFamilyPickListValuesIntoList)
            familytypes({ data, error  }) {
                if (data) {

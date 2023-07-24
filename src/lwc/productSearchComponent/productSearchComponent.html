@@ -4,4 +4,52 @@
 
 <!-- Product Search Component -->
 <template>
+    <lightning-card>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="Search" onchange={handleInputChange}></lightning-input>
+    </div>
+        <div class="card">
+            <template for:each={products} for:item="product">
+                    <div class="column" key={product}>
+                        <img src={product.Image__c} style="width:100%">
+                        <h1>{product.Name}</h1>
+                        <p class="price">Price:{product.Price__c}</p>
+                        <lightning-button id={product.Name} name={product.Description__c} value= {product.Name} onclick={openDetails} label="Details" title="Open description"></lightning-button>
+                        <lightning-button id={product.Id} label="Add" title="Add product to cart"></lightning-button>
+
+                </div>
+            </template>
+        </div>
+
+
+        <div class="modal">
+
+        </div>
+
+        <template if:true={openModal}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open" >
+                <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick={closeDetails}>
+                        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true" >
+                            <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Cancel and close</span>
+                    </button>
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">{itemName}</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p>{itemDescryption}</p>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </template>
+
+        <div class="slds-m-vertical_medium">
+            <p>The label of the button that was clicked is: <span class="slds-text-heading_small">{clickedButtonLabel}</span></p>
+            <lightning-button variant="base" label="Base" title="Looks like a link" onclick={openModal} class="slds-m-left_x-small"></lightning-button>
+        </div>
+
+    </lightning-card>
 </template>

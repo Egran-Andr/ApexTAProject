@@ -7,8 +7,8 @@
     <lightning-card >
         <p class="slds-text-heading_label">Filter</p>
         <div class="container" lwc:dom="manual"></div>
-        <lightning-accordion class="slds-accordion"
-                             onsectiontoggle={handleToggleSection}
+        <lightning-accordion allow-multiple-sections-open class="slds-accordion"
+                             active-section-name={activeSections}
         >
             <lightning-accordion-section name="TypeFilter" label="Type">
                 <template for:each={types} for:item="type">
