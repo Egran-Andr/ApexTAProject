@@ -13,7 +13,7 @@
             <lightning-accordion-section name="TypeFilter" label="Type">
                 <template for:each={types} for:item="type">
                     <div  key={type}>
-                        <input type="checkbox" id={type} name={type} onchange={handleChange}>
+                        <input type="checkbox" id={type} name={type} onchange={handleChange} checked="checked">
                         <label>{type}</label>
                     </div>
                 </template>
@@ -23,12 +23,11 @@
             <lightning-accordion-section name="FamilyFilter" label="Family">
                 <template for:each={families} for:item="family">
                     <div  key={family}>
-                        <input type="checkbox" id={family} name={family}>
+                        <input type="checkbox" id={family} name={family} checked="checked">
                         <label>{family}</label>
                     </div>
                 </template>
             </lightning-accordion-section>
         </lightning-accordion>
-        <p>The label of the button that was clicked is: <span class="slds-text-heading_small">{clickedButtonLabel}</span></p>
     </lightning-card>
 </template>

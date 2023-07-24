@@ -6,7 +6,7 @@
 <template>
     <lightning-card>
     <div class="slds-p-around_medium lgc-bg">
-        <lightning-input type="text" label="Search" onchange={handleInputChange}></lightning-input>
+        <lightning-input type="text" label="Search" onchange={handleInputChange} value={checkCost}></lightning-input>
     </div>
         <div class="card">
             <template for:each={products} for:item="product">
@@ -15,7 +15,7 @@
                         <h1>{product.Name}</h1>
                         <p class="price">Price:{product.Price__c}</p>
                         <lightning-button id={product.Name} name={product.Description__c} value= {product.Name} onclick={openDetails} label="Details" title="Open description"></lightning-button>
-                        <lightning-button id={product.Id} label="Add" title="Add product to cart"></lightning-button>
+                        <lightning-button id={product.Name} value= {product.Name} onclick={addToCart} label="Add" title="Add product to cart"></lightning-button>
 
                 </div>
             </template>
@@ -45,11 +45,6 @@
             </section>
             <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
         </template>
-
-        <div class="slds-m-vertical_medium">
-            <p>The label of the button that was clicked is: <span class="slds-text-heading_small">{clickedButtonLabel}</span></p>
-            <lightning-button variant="base" label="Base" title="Looks like a link" onclick={openModal} class="slds-m-left_x-small"></lightning-button>
-        </div>
 
     </lightning-card>
 </template>
