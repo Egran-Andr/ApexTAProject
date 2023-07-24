@@ -1,0 +1,12 @@
+/**
+ * Created by Egran on 23.07.2023.
+ */
+p,
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+    margin: 0.4rem;
+}
+
+input {
+    margin: 0.4rem;
+}

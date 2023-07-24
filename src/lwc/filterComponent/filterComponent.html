@@ -6,20 +6,29 @@
 <template>
     <lightning-card >
         <p class="slds-text-heading_label">Filter</p>
-
+        <div class="container" lwc:dom="manual"></div>
         <lightning-accordion class="slds-accordion"
                              onsectiontoggle={handleToggleSection}
         >
             <lightning-accordion-section name="TypeFilter" label="Type">
-                <div id="TypeResycler">
-                    <input type="checkbox" id="scales" name="scales">
-                    <label for="scales">{typesize}</label>
-                </div>
+                <template for:each={types} for:item="type">
+                    <div  key={type}>
+                        <input type="checkbox" id={type} name={type} onchange={handleChange}>
+                        <label>{type}</label>
+                    </div>
+                </template>
+
             </lightning-accordion-section>
 
             <lightning-accordion-section name="FamilyFilter" label="Family">
-
+                <template for:each={families} for:item="family">
+                    <div  key={family}>
+                        <input type="checkbox" id={family} name={family}>
+                        <label>{family}</label>
+                    </div>
+                </template>
             </lightning-accordion-section>
         </lightning-accordion>
+        <p>The label of the button that was clicked is: <span class="slds-text-heading_small">{clickedButtonLabel}</span></p>
     </lightning-card>
 </template>

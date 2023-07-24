@@ -13,15 +13,15 @@ public with sharing class ObjectGetter {
         }
         return pickListValuesList;
     }
-
+    @AuraEnabled(cacheable=true)
     public static List<String> getFamilyPickListValuesIntoList(){
-        List<String> pickListValuesList= new List<String>();
+        List<String> pickListValuesListFamilies= new List<String>();
         Schema.DescribeFieldResult fieldResult = Product__c.Family__c.getDescribe();
         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
         for( Schema.PicklistEntry pickListVal : ple){
-            pickListValuesList.add(pickListVal.getLabel());
+            pickListValuesListFamilies.add(pickListVal.getLabel());
         }
-        return pickListValuesList;
+        return pickListValuesListFamilies;
     }
 
 }
